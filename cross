@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zbiórka na Cross KXD 125</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .bike-image {
+            width: 100%;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><rect fill="%23333" width="800" height="300"/><text x="400" y="150" font-family="Arial" font-size="48" fill="%23fff" text-anchor="middle">🏍️ CROSS KXD 125</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .amount-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .collected {
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        .goal {
+            color: #666;
+            font-size: 1.3em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 40px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .description h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .donate-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .donate-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .supporters {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .supporters h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .update-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏍️ Zbiórka na Cross KXD 125</h1>
+            <p>Pomóż mi spełnić marzenie!</p>
+        </div>
+
+        <div class="bike-image"></div>
+
+        <div class="content">
+            <div class="progress-section">
+                <div class="amount-info">
+                    <span class="collected">
+                        <span id="collected-amount">0</span> zł
+                    </span>
+                    <span class="goal">cel: 3 000 zł</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress">0%</div>
+                </div>
+            </div>
+
+            <div class="description">
+                <h2>O zbiórce</h2>
+                <p>
+                    Cześć! Zbieram na zakup crossa KXD 125. To moje wielkie marzenie, 
+                    żeby móc jeździć po bezdrożach i rozwijać swoją pasję do motoryzacji. 
+                    Cross KXD to świetny wybór dla początkujących - niezawodny, bezpieczny 
+                    i idealny do nauki jazdy terenowej.
+                </p>
+                <br>
+                <p>
+                    <strong>Cel zbiórki:</strong> 3 000 zł<br>
+                    <strong>Przeznaczenie:</strong> Zakup crossa KXD 125 + wyposażenie ochronne
+                </p>
+            </div>
+
+            <button class="donate-button" onclick="handleDonate()">
+                💰 WSPIERAM ZBIÓRKĘ
+            </button>
+
+            <div class="update-section">
+                <strong>📢 Aktualizacja zbiórki</strong><br>
+                Każda wpłata przybliża mnie do celu! Dziękuję za każde wsparcie! 🙏
+            </div>
+
+            <div class="supporters">
+                <h3>❤️ Wspierający:</h3>
+                <p id="supporters-list">Bądź pierwszy, który wesprze tę zbiórkę!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Symulacja postępu zbiórki (możesz to edytować)
+        let currentAmount = 0; // Wpisz tutaj aktualną kwotę
+        const goalAmount = 3000;
+
+        function updateProgress() {
+            const percentage = Math.min((currentAmount / goalAmount) * 100, 100);
+            document.getElementById('collected-amount').textContent = currentAmount.toLocaleString('pl-PL');
+            document.getElementById('progress').style.width = percentage + '%';
+            document.getElementById('progress').textContent = Math.round(percentage) + '%';
+        }
+
+        function handleDonate() {
+            // Tutaj możesz dodać link do PayPal, Patronite, zrzutka.pl itp.
+            alert('Tutaj dodaj swój link do systemu płatności!\n\nMożesz użyć:\n- Zrzutka.pl\n- PayPal\n- BLIK\n- Przelew na konto');
+            
+            // Przykład z kontem bankowym:
+            // alert('Numer konta:\n12 3456 7890 1234 5678 9012 3456\n\nW tytule wpisz: Zbiórka na Cross');
+        }
+
+        // Inicjalizacja
+        updateProgress();
+
+        // Animacja przy załadowaniu
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                updateProgress();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
